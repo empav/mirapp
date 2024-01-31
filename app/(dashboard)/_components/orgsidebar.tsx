@@ -20,8 +20,6 @@ const OrgSidebar = (props: Props) => {
   const sp = useSearchParams();
   const favorites = sp.get("favorites");
 
-  console.log("favorites", favorites);
-
   return (
     <div className="hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-3">
       <Link href="/">
@@ -57,8 +55,8 @@ const OrgSidebar = (props: Props) => {
         <Button
           asChild
           size="lg"
-          className="font-normal justify-start px-2 w-full"
-          variant={favorites ? "ghost" : "secondary"}
+          className={cn("font-normal justify-start px-2 w-full", favorites && "hover:bg-red-300")}
+          variant={favorites ? "ghost" : "default"}
         >
           <Link href="/">
             <LayoutDashboard className="h-4 w-4 mr-2" />
@@ -68,8 +66,8 @@ const OrgSidebar = (props: Props) => {
         <Button
           asChild
           size="lg"
-          className="font-normal justify-start px-2 w-full"
-          variant={favorites ? "secondary" : "ghost"}
+          className={cn("font-normal justify-start px-2 w-full", !favorites && "hover:bg-red-300")}
+          variant={favorites ? "default" : "ghost"}
         >
           <Link href={{ pathname: "/", query: { favorites: true } }}>
             <Star className="h-4 w-4 mr-2" />
