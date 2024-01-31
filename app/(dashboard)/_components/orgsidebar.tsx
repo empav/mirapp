@@ -21,7 +21,7 @@ const OrgSidebar = (props: Props) => {
   const favorites = sp.get("favorites");
 
   return (
-    <div className="hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-3">
+    <div className="hidden lg:flex flex-col space-y-6 w-[25rem] px-8 pt-5">
       <Link href="/">
         <div className="flex items-center gap-x-2">
           <Image src="/logo.svg" alt="Mirapp Logo" height={60} width={60} />
@@ -41,7 +41,7 @@ const OrgSidebar = (props: Props) => {
               width: "100%",
             },
             organizationSwitcherTrigger: {
-              padding: "6px",
+              padding: "1em",
               width: "100%",
               borderRadius: "8px",
               border: "1px solid #E5E7EB",
@@ -55,22 +55,22 @@ const OrgSidebar = (props: Props) => {
         <Button
           asChild
           size="lg"
-          className={cn("font-normal justify-start px-2 w-full", favorites && "hover:bg-red-300")}
+          className={cn("font-normal justify-start px-5 py-8 w-full", favorites && "hover:bg-red-300")}
           variant={favorites ? "ghost" : "default"}
         >
           <Link href="/">
-            <LayoutDashboard className="h-4 w-4 mr-2" />
+            <LayoutDashboard className="h-8 w-8 mr-4" />
             Team Boards
           </Link>
         </Button>
         <Button
           asChild
           size="lg"
-          className={cn("font-normal justify-start px-2 w-full", !favorites && "hover:bg-red-300")}
+          className={cn("font-normal justify-start px-5 py-8 w-full", !favorites && "hover:bg-red-300")}
           variant={favorites ? "default" : "ghost"}
         >
           <Link href={{ pathname: "/", query: { favorites: true } }}>
-            <Star className="h-4 w-4 mr-2" />
+            <Star className="h-8 w-8 mr-4" />
             Favorites Boards
           </Link>
         </Button>
