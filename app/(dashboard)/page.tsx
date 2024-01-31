@@ -1,5 +1,7 @@
-import { Button } from "@/components/ui/button";
-
 export default function Home() {
-  return <Button>Click me</Button>;
+  return (
+    <div className="flex flex-col gap-y-4">
+      <div>This screen is for auth users only</div>
+    </div>
+  );
 }
