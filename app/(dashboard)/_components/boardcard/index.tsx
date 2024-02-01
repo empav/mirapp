@@ -14,8 +14,6 @@ interface BoardCardProps {
   authorId: string;
   createdAt: number;
   imageUrl: string;
-  orgId: string;
-  isFavorite: boolean;
 }
 
 export const BoardCard = ({

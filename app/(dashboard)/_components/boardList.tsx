@@ -64,8 +64,6 @@ const OrganizationList = ({ orgId, query }: OrganizationListProps) => {
             authorId={board.authorId}
             authorName={board.authorName}
             createdAt={board._creationTime}
-            orgId={board.orgId}
-            // isFavorite={board.isFavorite}
           />
         ))}
       </div>
