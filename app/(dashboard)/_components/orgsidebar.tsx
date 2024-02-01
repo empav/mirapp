@@ -63,7 +63,7 @@ const OrgSidebar = (props: Props) => {
             Team Boards
           </Link>
         </Button>
-        <Button
+        {/* <Button
           asChild
           size="lg"
           className={cn("font-normal justify-start px-5 py-8 w-full", !favorites && "hover:bg-red-300")}
@@ -73,7 +73,7 @@ const OrgSidebar = (props: Props) => {
             <Star className="h-8 w-8 mr-4" />
             Favorites Boards
           </Link>
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
