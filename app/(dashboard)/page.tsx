@@ -2,7 +2,7 @@
 
 import { useOrganization } from "@clerk/nextjs";
 import EmptyOrg from "./_components/emptyOrg";
-import OrganizationList from "./_components/orgList";
+import BoardList from "./_components/boardList";
 
 type HomeProps = {
   searchParams: {
@@ -17,7 +17,7 @@ export default function Home({ searchParams }: HomeProps) {
   return (
     <div className="flex-1 h-[calc(100%-80px)]">
       {organization ? (
-        <OrganizationList orgId={organization.id} query={searchParams} />
+        <BoardList orgId={organization.id} query={searchParams} />
       ) : (
         <EmptyOrg />
       )}

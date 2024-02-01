@@ -1,8 +1,10 @@
 "use client";
 
+import { useQuery } from "convex/react";
 import { EmptyBoards } from "./emptyBoards";
 import { EmptyFavorites } from "./emptyFavorites";
 import { EmptySearch } from "./emptySearch";
+import { api } from "@/convex/_generated/api";
 
 type OrganizationListProps = {
   orgId: string;
@@ -13,7 +15,11 @@ type OrganizationListProps = {
 };
 
 const OrganizationList = ({ orgId, query }: OrganizationListProps) => {
-  const data = []; //TODO: Change to api call
+  const data = useQuery(api.boards.get, { orgId });
+
+  if (data === undefined) {
+    return <div>Loading...</div>;
+  }
 
   if (!data.length && query.search) {
     return <EmptySearch />;
@@ -29,7 +35,7 @@ const OrganizationList = ({ orgId, query }: OrganizationListProps) => {
 
   return (
     <div>
-      {orgId}:{JSON.stringify(query)}
+      {orgId}:{JSON.stringify(data)}
     </div>
   );
 };
