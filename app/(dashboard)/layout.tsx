@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import Sidebar from "./_components/sidebar";
-import OrgSidebar from "./_components/orgsidebar";
 import Navbar from "./_components/navbar";
+import OrgSidebar from "./_components/orgsidebar";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (

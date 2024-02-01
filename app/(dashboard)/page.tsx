@@ -1,7 +1,26 @@
-export default function Home() {
+"use client";
+
+import { useOrganization } from "@clerk/nextjs";
+import EmptyOrg from "./_components/emptyOrg";
+import OrganizationList from "./_components/orgList";
+
+type HomeProps = {
+  searchParams: {
+    search?: string;
+    favorites?: string;
+  };
+};
+
+export default function Home({ searchParams }: HomeProps) {
+  const { organization } = useOrganization();
+
   return (
-    <div className="flex flex-col gap-y-4">
-      <div>This screen is for auth users only</div>
+    <div className="flex-1 h-[calc(100%-80px)]">
+      {organization ? (
+        <OrganizationList orgId={organization.id} query={searchParams} />
+      ) : (
+        <EmptyOrg />
+      )}
     </div>
   );
 }
