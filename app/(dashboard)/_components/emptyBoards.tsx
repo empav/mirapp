@@ -5,18 +5,24 @@ import { Button } from "@/components/ui/button";
 import { useOrganization } from "@clerk/nextjs";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 export const EmptyBoards = () => {
   const { organization } = useOrganization();
   const { mutate, pending } = useApiMutation(api.board.create);
 
-  const onClick = () => {
+  const onClick = async () => {
     if (!organization) return;
 
-    mutate({
-      orgId: organization.id,
-      title: "untitled",
-    });
+    try {
+      await mutate({
+        orgId: organization.id,
+        title: "untitled",
+      });
+      toast.success("Board created!");
+    } catch (error) {
+      toast.error("Failed to create board!");
+    }
   };
 
   return (
